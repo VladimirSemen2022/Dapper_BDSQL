@@ -45,6 +45,16 @@ namespace Dapper_BDSQL.Controller
         }
     }
 
+        public void Change(string name, Product newProduct)      //Метод записи данных в открытую базу SQL. Данные передаются в виде единичного объекта класса ObjectLog
+        {
+            if (ReadAndShow(false).Count > 1)
+            {
+                var sqlQuery = $"UPDATE Product SET Name = @Name, Category = @Category, Price = @Price WHERE Name = \'{name}\'";
+                int rows = connection.Execute(sqlQuery, newProduct);
+                if (rows > 0) Console.WriteLine($"Product with Name - {name} was changed!");
+            }
+        }
+
         public void Delete(int col)         //Удаление указанного в параметре col количества строк
         {
             if (ReadAndShow(false).Count > 1)
