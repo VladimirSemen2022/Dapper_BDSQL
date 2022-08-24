@@ -60,7 +60,7 @@ namespace Dapper_BDSQL.Controller
             if (ReadAndShow(false).Count > 1)
             {
                 int rows = connection.Execute($"DELETE FROM [dbo].[Product] WHERE {nameCol}='{value}'");
-                if (rows > 0) Console.WriteLine($"In the column {nameCol}={value} the table Log was found and deleted {rows} rows");
+                if (rows > 0) Console.WriteLine($"In the list of products column {nameCol}={value} was found and deleted {rows} rows");
             }
         }
     }

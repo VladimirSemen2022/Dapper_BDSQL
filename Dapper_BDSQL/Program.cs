@@ -61,13 +61,14 @@ namespace Dapper_BDSQL
                         Console.Write("Input price of the product - ");
                         newProduct.Price = Console.ReadLine();
                         newLink.Add(newProduct);
+                        products = newLink.ReadAndShow(false);
                         Thread.Sleep(2000);
                         break;
                     case "3":
                         Console.Clear();
                         if (products.Count > 0)
                         {
-                            Console.Write("Input name of product you want to delete from the dictionary - ");
+                            Console.Write("Input name of product you want to delete from the list - ");
                             name = Console.ReadLine();
                             if (products.FindIndex(x => x.Name.ToLower() == name.ToLower()) != -1)
                             {
@@ -83,7 +84,7 @@ namespace Dapper_BDSQL
                         break;
                     case "4":
                         Console.Clear();
-                        newLink.ReadAndShow(true);
+                        products=newLink.ReadAndShow(true);
                         Console.WriteLine("\nPress any key to continue");
                         Console.ReadKey();
                         break;
